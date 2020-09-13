@@ -2,7 +2,7 @@ public class Encrypter
 {
 
 
-    public static String encrypt(String args){
+    public String encrypt(String args){
         int[] arr;
         arr = new int[4];
 
@@ -16,13 +16,13 @@ public class Encrypter
         return answer;
     }
 
-    public static void convertToInt(String input, int[] arr){
+    public void convertToInt(String input, int[] arr){
         for(int i=0;i<4;i++){
             arr[i] = input.charAt(i) - 48;
         }
     }
 
-    public static String convertToString(String answer, int[] arr){
+    public String convertToString(String answer, int[] arr){
 
         StringBuilder answerBuilder = new StringBuilder(answer);
         for(int i = 0; i<4; i++) {
@@ -34,7 +34,7 @@ public class Encrypter
     }
 
 
-    public static void step1(int[] x)
+    public void step1(int[] x)
     {
         for(int i=0;i<4;i++)
         {
@@ -44,7 +44,7 @@ public class Encrypter
 
     }
 
-    public static void step2(int[] x)
+    public void step2(int[] x)
     {
        int temp;
 
