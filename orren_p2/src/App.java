@@ -69,5 +69,5 @@ public class App
         System.out.println("Average: " + (BodyMassIndex.total/BodyMassIndex.size));
         //lmao
     }
-
+    /* test */
 }
