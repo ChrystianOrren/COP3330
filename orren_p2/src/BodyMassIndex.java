@@ -10,15 +10,22 @@ public class BodyMassIndex {
          size++;
     }
 
-    public static void Category(){
-        if(bmi1 < 18.5)
+    public static int Category(){
+        if(bmi1 < 18.5) {
             System.out.println("Category: Underweight");
-        else if(bmi1 >= 18.5 & bmi1 < 25)
+            return 1;
+        }
+        else if(bmi1 >= 18.5 & bmi1 < 25) {
             System.out.println("Category: Normal");
-        else if(bmi1 > 25 & bmi1 < 30)
+            return 2;
+        }
+        else if(bmi1 > 25 & bmi1 < 30) {
             System.out.println("Category: Overweight");
-        else
+            return 3;
+        }
+        else {
             System.out.println("Category: Obese");
-
+            return 4;
+        }
     }
 }
