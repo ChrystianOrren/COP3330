@@ -87,6 +87,7 @@ public class App {
                     break;
             }
         }
+        mainMenu();
     }
 
     private static void saveList(TaskList List){
@@ -119,7 +120,6 @@ public class App {
 
     private static void editItem(TaskList List) {
         List.printList();
-        TaskItem newItem = new TaskItem();
         System.out.println("\nWhich task will you edit?");
         int choice = s.nextInt();
         s.nextLine();
@@ -129,11 +129,7 @@ public class App {
         String newD = s.nextLine();
         System.out.println("Enter a new task due date (YYYY-MM-DD) for task " + choice + ": ");
         String newDD = s.nextLine();
-        List.list.remove(choice);
-        newItem.setTitle(newT);
-        newItem.setDescription(newD);
-        newItem.setDueDate(newDD);
-        List.list.add(choice, newItem);
+        List.editItem(newT, newD, newDD, List, choice);
     }
 
     private static void viewList(TaskList List) {

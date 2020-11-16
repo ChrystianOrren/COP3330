@@ -29,7 +29,7 @@ public class TaskItem extends TaskList{
     }
 
     protected int setDueDate(String dueDate){
-        LocalDate ld = LocalDate.now();
+        LocalDate ld;
         try {
             ld = LocalDate.parse(dueDate);
         }

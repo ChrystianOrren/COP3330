@@ -9,7 +9,7 @@ public class TaskList {
         list.add(item);
     }
 
-    protected void removeFromList(int i){
+    protected void removeFromList(int i)throws IndexOutOfBoundsException{
         list.remove(i);
     }
 
@@ -38,28 +38,18 @@ public class TaskList {
         System.out.println("Task list has been saved");
     }
 
-    protected void unMarkCom(int choice){
-        Iterator itr = list.iterator();
-        int counter = 0;
-        while(itr.hasNext()){
-            TaskItem t = (TaskItem)itr.next();
-            if(counter == choice){
-                t.markUnComplete();
-            }
-            counter++;
+    protected void unMarkCom(int index)throws IndexOutOfBoundsException{
+        if(index > list.size() || index < 0){
+            System.out.println("WARNING: out of bounds choice");
         }
+        list.get(index).Complete = false;
     }
 
-    protected void markCom(int choice) {
-        Iterator itr = list.iterator();
-        int counter = 0;
-        while(itr.hasNext()){
-            TaskItem t = (TaskItem)itr.next();
-            if(counter == choice){
-                t.markComplete();
-            }
-            counter++;
+    protected void markCom(int index)throws IndexOutOfBoundsException {
+        if(index > list.size() || index < 0){
+            System.out.println("WARNING: out of bounds choice");
         }
+        list.get(index).Complete = true;
     }
 
     protected void actualizeList(String filename, TaskList List){
@@ -87,4 +77,27 @@ public class TaskList {
         }
     }
 
+    protected void editItem(String newT, String newD, String newDD, TaskList List, int choice) throws IndexOutOfBoundsException{
+        if(choice > List.list.size() || choice < 0){
+            System.out.println("WARNING: out of bounds index");
+        }
+        TaskItem newItem = new TaskItem();
+        List.list.remove(choice);
+        newItem.setTitle(newT);
+        newItem.setDescription(newD);
+        newItem.setDueDate(newDD);
+        List.list.add(choice, newItem);
+    }
+
+    protected String getItemDescription(int index) throws IndexOutOfBoundsException{
+        return list.get(index).getDescription();
+    }
+
+    protected String getItemDueDate(int index) throws IndexOutOfBoundsException{
+        return list.get(index).getDueDate();
+    }
+
+    public String getItemTitle(int i) throws IndexOutOfBoundsException{
+        return list.get(i).getTitle();
+    }
 }
