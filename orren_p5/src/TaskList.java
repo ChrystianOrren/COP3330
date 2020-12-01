@@ -19,7 +19,12 @@ public class TaskList {
         int i = 0;
         while(itr.hasNext()){
             TaskItem t = (TaskItem)itr.next();
-            System.out.println(i + ") " + "[" + t.DueDate + "]" + " " + t.Title + ": " + t.Description);
+            if(t.Complete == true){
+                System.out.println(i + ") " + "*** " + "[" + t.DueDate + "]" + " " + t.Title + ": " + t.Description);
+                i++;
+            }
+            else
+                System.out.println(i + ") " + "[" + t.DueDate + "]" + " " + t.Title + ": " + t.Description);
             i++;
         }
     }
@@ -28,7 +33,7 @@ public class TaskList {
         try(Formatter output = new Formatter(filename)) {
             for(int i = 0 ;i < list.size();i++){
                 TaskItem t = list.get(i);
-                output.format("%s, %s, %s\n", t.DueDate, t.Title, t.Description);
+                output.format("%s, %s, %s, %B\n", t.DueDate, t.Title, t.Description, t.Complete);
             }
         } catch (FileNotFoundException e) {
             System.out.println("WARNING: file not found");
@@ -73,6 +78,7 @@ public class TaskList {
             temp.setDueDate(data[0]);
             temp.setTitle(data[1]);
             temp.setDescription(data[2]);
+            temp.setComplete(data[3]);
             List.addList(temp);
         }
     }

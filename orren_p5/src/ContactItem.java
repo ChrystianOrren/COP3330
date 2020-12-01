@@ -14,7 +14,11 @@ public class ContactItem {
     }
 
     protected void setPhoneNumber(String pn){
-        this.phoneNumber = pn;
+        if(pn.charAt(3) == '-' && pn.charAt(7) == '-')
+            this.phoneNumber = pn;
+        else{
+            System.out.println("WARNING: Incorrect phone number format");
+        }
     }
 
     protected void setEmail(String em){
@@ -27,10 +31,6 @@ public class ContactItem {
             return;
         }
         cList.contactList.add(temp);
-    }
-
-    public String toString(){
-        return this.firstName + this.lastName + this.phoneNumber + this.email;
     }
 
 }

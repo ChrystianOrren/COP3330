@@ -1,2 +1,2 @@
-2020-11-14, test, test
-2020-01-01, new, new
+2020-11-14, test, test, FALSE
+2020-01-01, new, new, FALSE

@@ -58,4 +58,10 @@ public class TaskItem extends TaskList{
         this.Complete = false;
     }
 
+    public void setComplete(String datum) {
+        if(datum.length() == 4)
+            this.Complete = true;
+        else
+            this.Complete = false;
+    }
 }
